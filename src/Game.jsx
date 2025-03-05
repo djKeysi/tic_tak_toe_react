@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import styles from './field.module.css';
+
 const WIN_PATTERNS = [
 	[0, 1, 2],
 	[3, 4, 5],
@@ -12,7 +14,23 @@ const WIN_PATTERNS = [
 ];
 
 //выводит массив field (с помощью метода map());
-export const FieldLayout = () => {};
+export const FieldLayout = () => (
+	<div className={styles.parent}>
+		<div className={styles.block}>
+			<div className={styles.grid}>
+				<div className={styles.cell}></div>
+				<div className={styles.cell}></div>
+				<div className={styles.cell}></div>
+				<div className={styles.cell}></div>
+				<div className={styles.cell}></div>
+				<div className={styles.cell}></div>
+				<div className={styles.cell}></div>
+				<div className={styles.cell}></div>
+				<div className={styles.cell}></div>
+			</div>
+		</div>
+	</div>
+);
 
 export const Field = () => {};
 
@@ -32,6 +50,7 @@ export const Game = () => {
 	const [field, setField] = useState(Array(9).fill(null)); //массив с 9 ячейками
 
 	//['', '', '', '', '', '', '', '', ''];
+	return <FieldLayout />;
 };
 
 //const cells = Array(9).fill(null); //массив с 9 ячейками
