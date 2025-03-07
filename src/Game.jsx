@@ -49,48 +49,6 @@ export const Game = () => {
 	const [isDraw, setIsDraw] = useState(false); //была ли ничья
 	const [field, setField] = useState(Array(9).fill(' ')); //массив с 9 ячейками
 
-	//['', '', '', '', '', '', '', '', ''];
-	//return <FieldLayout field={setField(field)} />;
-	// const getClick = () => {
-	// 	console.log('click');
-	// };
-
-	// const handleClick = (index) => {
-	// 	if (field[index] || isGameEnded) {
-	// 		return;
-	// 	}
-
-	// 	const newField = [...field];
-	// 	newField[index] = currentPlayer;
-	// setCurrentPlayer(currentPlayer === "x" ? "o" : "x"); //меняем игрока
-	// };
-
-	// const Click = (e, index) => {
-	// 	// console.log('click');
-	// 	// console.log(e[index]);
-	// 	// if (field[index] || isGameEnded) {
-	// 	// 	return;
-	// 	// }
-
-	// 	// const newField = [...field];
-	// 	// newField[index] = currentPlayer;
-	// 	setCurrentPlayer(currentPlayer === 'x' ? 'o' : 'x'); //меняем игрока
-	// 	console.log(field);
-	// };
-	// const winner = WIN_PATTERNS.every((cellIndex) => {
-	// 	return field[cellIndex] === currentPlayer;
-	// 	//console.log(currentPlayer);
-
-	// 	//console.log(cellIndex[]);
-	// 	//console.log(currentPlayer);
-
-	// 	//field[cellIndex] === currentPlayer;
-	// });
-	// console.log(winner);
-	//console.log(WIN_PATTERNS[0][2]);
-
-	//let s = [];
-
 	const X = field
 		.map((cellIndex, index) => {
 			if (cellIndex === 'X') return index;
@@ -102,24 +60,24 @@ export const Game = () => {
 			if (cellIndex === 'O') return index;
 		})
 		.filter((cellIndex) => cellIndex !== undefined);
-	// console.log('ddd', X);
-
-	// console.log();
 
 	const compareFunc = (a, b) =>
 		a.length === b.length && a.every((element, index) => element === b[index]);
 
-	// let a = X;
-	// let b = WIN_PATTERNS[0];
-	WIN_PATTERNS.forEach((cellIndex) => {
+
+	let s='';
+	const winner = WIN_PATTERNS.forEach((cellIndex) => {
 		if (compareFunc(X, cellIndex)) {
-			console.log('X win');
+			s='Победил игрок: X ';
 		}
+
 		if (compareFunc(O, cellIndex)) {
-			console.log('O win');
+			s=' Победил игрок: Y ';
 		}
 	});
-	console.log(O);
+	console.log(winner);
+	
+	//console.log(O);
 
 	//console.log(compareFunc(X, WIN_PATTERNS[0]));
 
@@ -143,31 +101,33 @@ export const Game = () => {
 				<div className={styles.grid}>
 					{field.map((num, index) => {
 						return (
-							<div
+							<div 
 								onClick={() => {
-									//const newField = [...field];
 									const newField = [...field];
-
 									newField[index] = currentPlayer;
 									setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
 									setField(newField);
 
-									//console.log(newField);
-									//setField(num);
-									// console.log(num[currentPlayer]);
-
-									// setCurrentPlayer(
-									// 	currentPlayer[index] === 'x' ? 'o' : 'x',
-									// );
-									//console.log(currentPlayer[index]);
 								}}
 								key={index}
-								className={styles.cell}
+								className={ num === ' ' ? styles.cell : styles.cell+ ' ' + styles.disabled									
+								}
 							>
 								{num}
 							</div>
 						);
 					})}
+					
+					<div>
+			<label>{`Ходит игрок: ${currentPlayer}`}</label>
+			</div>
+
+			<div>
+			<label>{s}</label>
+			</div>
+
+
+
 				</div>
 			</div>
 		</div>

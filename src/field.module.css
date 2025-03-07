@@ -29,6 +29,22 @@
 	height: 50px;
 	margin-bottom: 5px;
 	background-color: #999;
+	text-align: center;
+	font-size: 250%;
+	font-weight: bold;
+	font-family: Arial, Verdana, Helvetica;
+	cursor: crosshair ;
+	 
+	/* pointer-events: none;
+    opacity: 0.4; */
+}
+
+
+.disabled {
+	/* cursor: pointer; */
+	pointer-events: none;
+	
+	
 }
 /* .cell:nth-child(3n) {
 	background-color: #f00;
