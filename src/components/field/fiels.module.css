@@ -1,4 +1,3 @@
-/* выравниваем по центру экрана */
 .parent {
 	width: 100%;
 	height: 100%;
@@ -17,8 +16,6 @@
 	margin: -125px 0 0 -125px;
 }
 
-/* выравниваем по центру экрана */
-
 .grid {
 	display: flex; /* establish flex container */
 	flex-wrap: wrap; /* enable flex items to wrap */
@@ -33,19 +30,13 @@
 	font-size: 250%;
 	font-weight: bold;
 	font-family: Arial, Verdana, Helvetica;
-	cursor: crosshair ;
-	 
+	cursor: crosshair;
+
 	/* pointer-events: none;
     opacity: 0.4; */
 }
 
-
 .disabled {
 	/* cursor: pointer; */
 	pointer-events: none;
-	
-	
 }
-/* .cell:nth-child(3n) {
-	background-color: #f00;
-} */
