@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 Если isDraw равен false, но isGameEnded равен true — `Победа: ${currentPlayer}`;
 Если isDraw равен false и isGameEnded равен false — `Ходит: ${currentPlayer}*/
 
-export const InformationLayout = ({ currentPlayer, isDraw, isGameEnded }) => {
+const InformationLayout = ({ currentPlayer, isDraw, isGameEnded }) => {
 	return (
 		<>
 			{!isDraw && !isGameEnded && (

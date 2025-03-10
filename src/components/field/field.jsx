@@ -1,7 +1,7 @@
 import styles from './fiels.module.css';
 import PropTypes from 'prop-types';
 
-export const FieldLayout = ({ field, onClickCell, isGameEnded }) => {
+const FieldLayout = ({ field, onClickCell, isGameEnded }) => {
 	//const { field,onClickCell } = props;
 	return (
 		<>

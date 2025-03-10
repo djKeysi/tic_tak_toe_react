@@ -27,10 +27,10 @@ const areArraysEqual = (array1, array2) => {
 	return array2.every((x) => array1.includes(x));
 };
 
-export const GameLayout = ({ OnClickRestart }) => {
+const GameLayout = ({ onClickRestart }) => {
 	return (
 		<>
-			<button onClick={OnClickRestart}> Начать заново</button>
+			<button onClick={onClickRestart}> Начать заново</button>
 		</>
 	);
 };
@@ -97,5 +97,5 @@ export const Game = () => {
 };
 
 GameLayout.PropTypes = {
-	OnClickRestart: PropTypes.func.isRequired,
+	onClickRestart: PropTypes.func.isRequired,
 };
